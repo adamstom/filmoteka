@@ -4,8 +4,9 @@ import com.grupa4.sda.UzytkownikFunkcja;
 
 public final class Logowanie {
     public UzytkownikFunkcja uzytkownikZalogowany;
+
     public void zaloguj(){
         int wybranaRola;
-        wybranaRola = odczytInta();
+       // wybranaRola = odczytInta();
     };
 }

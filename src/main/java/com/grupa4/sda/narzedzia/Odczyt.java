@@ -8,7 +8,6 @@ public class Odczyt {
 
         String odczytywanyText;
         Scanner odczyt = new Scanner(System.in);
-
         odczytywanyText = odczyt.nextLine();
 
         return odczytywanyText;
@@ -18,7 +17,6 @@ public class Odczyt {
 
         int odczytywanaLiczba;
         Scanner odczyt = new Scanner(System.in);
-
         odczytywanaLiczba = odczyt.nextInt();
 
         return odczytywanaLiczba;
