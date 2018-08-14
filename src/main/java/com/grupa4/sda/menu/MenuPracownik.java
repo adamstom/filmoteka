@@ -11,6 +11,6 @@ public class MenuPracownik {
         System.out.println("9. Edytuj klienta");
         System.out.println("11. Cennik");
         System.out.println("14. Kary/lista dłużników");
-        System.out.println("15. EXIT");
+        System.out.println("0. EXIT");
     }
 }

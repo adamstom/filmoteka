@@ -8,10 +8,11 @@ import com.grupa4.sda.menu.MenuGlowne;
 public class App {
     public static void main(String[] args) {
 
-        Odczyt odczyt = new Odczyt() {};
+        Odczyt odczyt = new Odczyt() {
+        };
         MenuGlowne menuGlowne = new MenuGlowne();
         menuGlowne.wyswietlMenuLogowania();
-
+        boolean exit = false;
         switch (odczyt.odczytInta()) {
 
             case 1:
@@ -25,6 +26,10 @@ public class App {
             case 3:
                 //KLIENT
                 break;
+
+            case 0:
+                exit = true;
+
             default:
                 System.out.println("Wyświetlam nieprzewidziane menu!!!");
         }

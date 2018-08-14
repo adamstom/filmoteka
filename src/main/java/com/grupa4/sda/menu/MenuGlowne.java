@@ -13,8 +13,10 @@ public class MenuGlowne {
         System.out.println("1 - Administrator");
         System.out.println("2 - Pracownik");
         System.out.println("3 - Klient");
+        System.out.println("0 - Exit");
         System.out.print("Wybierz opcje wpisujac jej numer w klawiaturze: ");
 
+        boolean exit = false;
 
         switch (odczyt.odczytInta()) {
             case 1:
@@ -28,6 +30,10 @@ public class MenuGlowne {
             case 3:
                 System.out.printf("to bedzie menu dla klienta");
                 break;
+            case 0:
+                exit = true;
+                break;
+
             default:
                 System.out.println("Wyświetlam nieprzewidziane menu!!!");
         }

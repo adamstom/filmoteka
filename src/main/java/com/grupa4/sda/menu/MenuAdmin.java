@@ -18,29 +18,26 @@ public class MenuAdmin extends MenuPracownik {
         System.out.println("12. Edytuj cennik");
         System.out.println("13. Finanse");
         System.out.println("14. Kary/lista dłużników");
-        System.out.println("15. EXIT");
+        System.out.println("0. Powrót do poprzedniego menu");
 
         Odczyt odczyt = new Odczyt() {};
+        boolean exit = false;
         switch (odczyt.odczytInta()) {
-            case 0:
-
-                break;
             case 1:
-                System.out.println("Klienci");
-                System.out.println("MenuGlowne:");
-                System.out.println("1 - Lista Klientow");
-                System.out.println("2 - Dodaj nowego klienta");
-                System.out.println("3 - Edytuj dane klienta");
-                System.out.println("4 - Usun klienta");
-                System.out.println("0 - Exit");
-
 
                 break;
             case 2:
                 System.out.println("operacje na filmach");
+                break;
+            case 0:
+                System.out.println("Wybrano powrót");
+                MenuGlowne menuGlowne =new MenuGlowne();
+                menuGlowne.wyswietlMenuLogowania();
+
                 break;
             default:
                 System.out.println("Wyświetlam nieprzewidziane menu!!!");
         }
     }
 }
+
