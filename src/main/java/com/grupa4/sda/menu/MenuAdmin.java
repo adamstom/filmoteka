@@ -1,7 +1,12 @@
 package com.grupa4.sda.menu;
 import com.grupa4.sda.narzedzia.Odczyt;
+import com.grupa4.sda.procesy.Klienci;
+import com.grupa4.sda.procesy.KlientAdd;
 
 public class MenuAdmin {
+    private static KlientAdd klientAdd = new KlientAdd();
+
+    MenuGlowne menuGlowne = new MenuGlowne();
     public void wyswietlMenu() {
         System.out.println("======= Menu Administratora: =======");
         System.out.println("1. Lista filmów");
@@ -23,7 +28,9 @@ public class MenuAdmin {
         Odczyt odczyt = new Odczyt() {
         };
         boolean exit = false;
+        Klienci klient = new Klienci("","");
         switch (odczyt.odczytInta()) {
+
             case 1:
                 System.out.println("==ToDo== 1. Lista filmów");
                 break;
@@ -43,10 +50,13 @@ public class MenuAdmin {
                 System.out.println("==ToDo== 5. Sprawdź dostępność filmu");
                 break;
             case 7:
-                System.out.println("==ToDo== 7. Lista klientów");
+                System.out.println("== Wybrano: 7 == Lista klientów");
+                klientAdd.wyswietlListeKlientow(klient);
                 break;
             case 8:
-                System.out.println("==ToDo== 8. Dodaj klienta");
+                System.out.println("== Wybrano: 8 == Dodaj klienta");
+                klientAdd.dodajKlienta(klient);
+                wyswietlMenu();
                 break;
             case 9:
                 System.out.println("==ToDo== 9. Edytuj klienta");
@@ -68,8 +78,7 @@ public class MenuAdmin {
                 break;
             case 0:
                 System.out.println("======= Wybrano powrót ======= ");
-                MenuGlowne menuGlowne = new MenuGlowne();
-                menuGlowne.wyswietlMenuLogowania();
+               menuGlowne.wyswietlMenuLogowania();
 
                 break;
             default:
