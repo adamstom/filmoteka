@@ -1,9 +1,9 @@
 package com.grupa4.sda.menu;
 import com.grupa4.sda.narzedzia.Odczyt;
 
-public class MenuAdmin extends MenuPracownik {
+public class MenuAdmin {
     public void wyswietlMenu() {
-        System.out.println("Menu Glowne Administratora:");
+        System.out.println("======= Menu Administratora: =======");
         System.out.println("1. Lista filmów");
         System.out.println("2. Dodaj film");
         System.out.println("3. Edytuj film");
@@ -20,23 +20,60 @@ public class MenuAdmin extends MenuPracownik {
         System.out.println("14. Kary/lista dłużników");
         System.out.println("0. Powrót do poprzedniego menu");
 
-        Odczyt odczyt = new Odczyt() {};
+        Odczyt odczyt = new Odczyt() {
+        };
         boolean exit = false;
         switch (odczyt.odczytInta()) {
             case 1:
-
+                System.out.println("==ToDo== 1. Lista filmów");
                 break;
             case 2:
-                System.out.println("operacje na filmach");
+                System.out.println("==ToDo== 2. Dodaj film");
+                break;
+            case 3:
+                System.out.println("==ToDo== 3. Edytuj film");
+                break;
+            case 4:
+                System.out.println("==ToDo== 4. Usuń film");
+                break;
+            case 5:
+                System.out.println("==ToDo== 5. Sprawdź dostępność filmu");
+                break;
+            case 6:
+                System.out.println("==ToDo== 5. Sprawdź dostępność filmu");
+                break;
+            case 7:
+                System.out.println("==ToDo== 7. Lista klientów");
+                break;
+            case 8:
+                System.out.println("==ToDo== 8. Dodaj klienta");
+                break;
+            case 9:
+                System.out.println("==ToDo== 9. Edytuj klienta");
+                break;
+            case 10:
+                System.out.println("==ToDo== 10. Usuń klienta");
+                break;
+            case 11:
+                System.out.println("==ToDo== 11. Cennik");
+                break;
+            case 12:
+                System.out.println("==ToDo== 12. Edytuj cennik");
+                break;
+            case 13:
+                System.out.println("==ToDo== 13. Finanse");
+                break;
+            case 14:
+                System.out.println("==ToDo== 14. Kary/lista dłużników");
                 break;
             case 0:
-                System.out.println("Wybrano powrót");
-                MenuGlowne menuGlowne =new MenuGlowne();
+                System.out.println("======= Wybrano powrót ======= ");
+                MenuGlowne menuGlowne = new MenuGlowne();
                 menuGlowne.wyswietlMenuLogowania();
 
                 break;
             default:
-                System.out.println("Wyświetlam nieprzewidziane menu!!!");
+                System.out.println("Wyświetlam nieprzewidziane zdarzenie! ADMIN");
         }
     }
 }

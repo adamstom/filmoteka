@@ -1,11 +1,11 @@
 package com.grupa4.sda.menu;
+
 import com.grupa4.sda.narzedzia.Odczyt;
 import com.grupa4.sda.menu.MenuAdmin;
 
 public class MenuGlowne {
-    Odczyt odczyt = new Odczyt() {};
-
-
+    Odczyt odczyt = new Odczyt() {
+    };
 
     public void wyswietlMenuLogowania() {
 
@@ -15,8 +15,6 @@ public class MenuGlowne {
         System.out.println("3 - Klient");
         System.out.println("0 - Exit");
         System.out.print("Wybierz opcje wpisujac jej numer w klawiaturze: ");
-
-        boolean exit = false;
 
         switch (odczyt.odczytInta()) {
             case 1:
@@ -28,14 +26,17 @@ public class MenuGlowne {
                 menuPracownik.wyswietlMenu();
                 break;
             case 3:
-                System.out.printf("to bedzie menu dla klienta");
+                MenuKlient menuKlient =new MenuKlient();
+                menuKlient.wyswietlMenu();
                 break;
             case 0:
-                exit = true;
+                System.out.println("======= Wybrano exit ======= ");
+                System.out.printf("program zakończył działanie");
+                System.exit(0);
                 break;
 
             default:
-                System.out.println("Wyświetlam nieprzewidziane menu!!!");
+                System.out.println("Wyświetlam nieprzewidziane zdarzenie! LOGOWANIE");
         }
     }
 }
