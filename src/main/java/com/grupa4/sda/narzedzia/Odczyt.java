@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Odczyt {
 
-    public String odczytStringa() {
+    public static String odczytStringa() {
 
         String odczytywanyText;
         Scanner odczyt = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class Odczyt {
         return odczytywanyText;
     }
 
-    public int odczytInta() {
+    public static int odczytInta() {
 
         int odczytywanaLiczba;
         Scanner odczyt = new Scanner(System.in);

@@ -3,6 +3,8 @@ package com.grupa4.sda.menu;
 import com.grupa4.sda.narzedzia.Odczyt;
 import com.grupa4.sda.menu.MenuAdmin;
 
+import java.io.IOException;
+
 public class MenuGlowne {
     Odczyt odczyt = new Odczyt() {
     };
@@ -19,7 +21,11 @@ public class MenuGlowne {
         switch (odczyt.odczytInta()) {
             case 1:
                 MenuAdmin menuAdmin = new MenuAdmin();
-                menuAdmin.wyswietlMenu();
+                try {
+                    menuAdmin.wyswietlMenu();
+                } catch (IOException e) {
+                    System.out.println("Błąd pliku");
+                }
                 break;
             case 2:
                 MenuPracownik menuPracownik = new MenuPracownik();

@@ -1,13 +1,15 @@
 package com.grupa4.sda.menu;
 import com.grupa4.sda.narzedzia.Odczyt;
-import com.grupa4.sda.procesy.Klienci;
+import com.grupa4.sda.procesy.Klient;
 import com.grupa4.sda.procesy.KlientAdd;
+
+import java.io.IOException;
 
 public class MenuAdmin {
     private static KlientAdd klientAdd = new KlientAdd();
 
     MenuGlowne menuGlowne = new MenuGlowne();
-    public void wyswietlMenu() {
+    public void wyswietlMenu() throws IOException {
         System.out.println("======= Menu Administratora: =======");
         System.out.println("1. Lista filmów");
         System.out.println("2. Dodaj film");
@@ -28,7 +30,7 @@ public class MenuAdmin {
         Odczyt odczyt = new Odczyt() {
         };
         boolean exit = false;
-        Klienci klient = new Klienci("","");
+        Klient klient = new Klient("","","");
         switch (odczyt.odczytInta()) {
 
             case 1:
@@ -51,7 +53,7 @@ public class MenuAdmin {
                 break;
             case 7:
                 System.out.println("== Wybrano: 7 == Lista klientów");
-                klientAdd.wyswietlListeKlientow(klient);
+                klientAdd.wyswietlListeKlientow();
                 break;
             case 8:
                 System.out.println("== Wybrano: 8 == Dodaj klienta");
