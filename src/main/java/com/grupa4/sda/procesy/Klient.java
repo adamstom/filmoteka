@@ -6,10 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Klient extends Odczyt {
+public class Klient {
     private String imie;
     private String nazwisko;
     private String pesel;
+
+    public Klient(String imie, String nazwisko, String pesel) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.pesel = pesel;
+    }
 
     public String getImie() {
         return imie;
@@ -32,12 +38,6 @@ public class Klient extends Odczyt {
     }
 
     public void setPesel(String pesel) {
-        this.pesel = pesel;
-    }
-
-    public Klient(String imie, String nazwisko, String pesel) {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
         this.pesel = pesel;
     }
 
@@ -83,5 +83,14 @@ public class Klient extends Odczyt {
         }
         return listaKlientow;
     }
+
+    public static List<String > tworzeListeStringowZListyKlientow(List<Klient>listaKlientow){
+        List<String> listaString = new ArrayList<>();
+        for(Klient klient : listaKlientow){
+            listaString.add(klient.imie+"|"+klient.nazwisko+"|"+klient.pesel);
+        }
+        return listaString;
+    }
+
 }
 
