@@ -40,7 +40,7 @@ public class OperacjeNaPlikach {
         return odczytanaListaStringow;
     }
 //=============================================================================
-    public void writeFile(String filePath, List<String> textLines)
+    public static void writeFile(String filePath, List<String> textLines)
             throws IOException {
 
         FileWriter fileWriter = new FileWriter(filePath);

@@ -2,9 +2,7 @@ package com.grupa4.sda.procesy;
 
 import com.grupa4.sda.narzedzia.Odczyt;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Klient {
     private String imie;
@@ -67,9 +65,10 @@ public class Klient {
     }
 
 
-    public static List<Klient> tworzeListeKlientowZListyStringow(List<String> listaStringow) {
+    public static Set<Klient> tworzeListeKlientowZListyStringow(List<String> listaStringow) {
 
-        List<Klient> listaKlientow = new ArrayList<>();
+        Set<Klient> listaKlientow = new HashSet<>();
+//        listaKlientow.add(new Klient("Maj","Kolka","292873766"));
 
         for (String linia : listaStringow) {
 //            String splitedArray = null;
@@ -84,7 +83,7 @@ public class Klient {
         return listaKlientow;
     }
 
-    public static List<String > tworzeListeStringowZListyKlientow(List<Klient>listaKlientow){
+    public static List<String > tworzeListeStringowZListyKlientow(Set<Klient>listaKlientow){
         List<String> listaString = new ArrayList<>();
         for(Klient klient : listaKlientow){
             listaString.add(klient.imie+"|"+klient.nazwisko+"|"+klient.pesel);
