@@ -1,4 +1,5 @@
 package com.grupa4.sda;
+import com.grupa4.sda.narzedzia.Logowanie;
 import com.grupa4.sda.narzedzia.Odczyt;
 import com.grupa4.sda.menu.MenuAdmin;
 import com.grupa4.sda.menu.MenuGlowne;
@@ -14,39 +15,43 @@ import static com.grupa4.sda.narzedzia.Ustawienia.PLIK_Z_LISTA_KLIENTOW;
 public class App {
     public static void main(String[] args) throws IOException {
 
+        //logowanie uzytkownika
+        Logowanie.zaloguj();
+        System.out.println("Jesteś zalogowany jako: "+Logowanie.uzytkownikZalogowany);
+
+        //wstępne ustawienia i inicjacja zmiennych
         List<String> listaStringow = new ArrayList<>();
-
-        List<String> listaStringowOdczytanaZPliku = new ArrayList<>();
-        Set<Klient> listaKlientow = new HashSet<>();
-
-
-
         OperacjeNaPlikach operacjeNaPlikach = new OperacjeNaPlikach();
+        //wczytanie listy klientów z pliku
+        listaStringow=operacjeNaPlikach.readFileToList(PLIK_Z_LISTA_KLIENTOW);
 
-        listaStringowOdczytanaZPliku=operacjeNaPlikach.readFileToList(PLIK_Z_LISTA_KLIENTOW);
+        Set<Klient> listaKlientow = new HashSet<>();
+        listaKlientow=Klient.tworzeListeKlientowZListyStringow(listaStringow);
 
-        System.out.println("Odczytujemy dane z pliku");
-        for(String i : listaStringowOdczytanaZPliku){
-            System.out.println(i);
-        }
 
-        listaKlientow=Klient.tworzeListeKlientowZListyStringow(listaStringowOdczytanaZPliku);
+//        System.out.println("Odczytujemy dane z pliku");
+//        for(String i : listaStringow){
+//            System.out.println(i);
+//        }
+
         //wyswietlam liste klientow
-        for(Klient klient : listaKlientow){
-            System.out.println(klient.toString());
-        }
-        //dodaje klienta do odczytanej listy klientow
-        listaKlientow.add(new Klient("Tomasz","Huk","peseltomka333"));
+//        for(Klient klient : listaKlientow){
+//            System.out.println(klient.toString());
+//        }
         //zapisuje liste klientow do listy stringow
-        listaStringow=Klient.tworzeListeStringowZListyKlientow(listaKlientow);
+//        listaStringow=Klient.tworzeListeStringowZListyKlientow(listaKlientow);
         //zapisuje liste stringow z dodanym klientem do pliku
-        OperacjeNaPlikach.writeFile(PLIK_Z_LISTA_KLIENTOW,listaStringow);
-        System.out.println("Sprawdz plik "+PLIK_Z_LISTA_KLIENTOW+" powinien być dopisany nowy klient");
+//        OperacjeNaPlikach.writeFile(PLIK_Z_LISTA_KLIENTOW,listaStringow);
 
 
-//NIE KASOWAC
-//        MenuGlowne menuGlowne = new MenuGlowne();
-//        menuGlowne.wyswietlMenuLogowania();
+        MenuGlowne menuGlowne = new MenuGlowne();
+        //główna pętla programu
+        int odczytaneMenu=0;
+        do {
+            menuGlowne.wyswietlMenuPoZalogowaniu();
+            odczytaneMenu=Odczyt.odczytInta();
+            //tu dodamy wykonywanie polecen
+        }while(odczytaneMenu!=0);
 
 
         }

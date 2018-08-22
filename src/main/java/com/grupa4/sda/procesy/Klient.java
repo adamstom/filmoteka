@@ -1,7 +1,5 @@
 package com.grupa4.sda.procesy;
 
-import com.grupa4.sda.narzedzia.Odczyt;
-
 import java.util.*;
 
 public class Klient {
@@ -64,21 +62,12 @@ public class Klient {
                 '}';
     }
 
-
     public static Set<Klient> tworzeListeKlientowZListyStringow(List<String> listaStringow) {
 
         Set<Klient> listaKlientow = new HashSet<>();
-//        listaKlientow.add(new Klient("Maj","Kolka","292873766"));
 
         for (String linia : listaStringow) {
-//            String splitedArray = null;
-//            splitedArray = linia.split("|")[0];
             listaKlientow.add(new Klient(linia.split("\\|")[0], linia.split("\\|")[1], linia.split("\\|")[2]));
-//            listaKlientow.add(new Klient(splitedArray[0], splitedArray[1], splitedArray[2]));
-//            System.out.println("sprawdzamy klase Klient metoda tworzeListeKlientowZListyStringow");
-//            System.out.println("imie"+splitedArray[0]);
-//            System.out.println("nazwisko"+splitedArray[1]);
-//            System.out.println("pesel"+splitedArray[2]);
         }
         return listaKlientow;
     }
