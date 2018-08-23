@@ -1,91 +1,51 @@
 package com.grupa4.sda.menu;
-import com.grupa4.sda.narzedzia.Odczyt;
-import com.grupa4.sda.procesy.Klient;
-import com.grupa4.sda.procesy.KlientAdd;
-
-import java.io.IOException;
 
 public class MenuAdmin {
-//    private static KlientAdd klientAdd = new KlientAdd();
 
-//    MenuGlowne menuGlowne = new MenuGlowne();
-    public void wyswietlMenu(){
+    public void wyswietlMenu(int odczytaneMenu){
         System.out.println("======= Menu Administratora: =======");
-        System.out.println("1. Lista filmów");
-        System.out.println("2. Dodaj film");
-        System.out.println("3. Edytuj film");
-        System.out.println("4. Usuń film");
-//        System.out.println("5. Sprawdź dostępność filmu");
-//        System.out.println("6. Wyszukaj Film");
-//        System.out.println("7. Lista klientów");
-//        System.out.println("8. Dodaj klienta");
-//        System.out.println("9. Edytuj klienta");
-//        System.out.println("10. Usuń klienta");
-//        System.out.println("11. Cennik");
-//        System.out.println("12. Edytuj cennik");
-//        System.out.println("13. Finanse");
-//        System.out.println("14. Kary/lista dłużników");
-        System.out.println("0. Powrót do poprzedniego menu");
-
-//        Odczyt odczyt = new Odczyt() {
-//        };
-//        boolean exit = false;
-//        Klient klient = new Klient("","","");
-//        switch (odczyt.odczytInta()) {
-//
-//            case 1:
-//                System.out.println("==ToDo== 1. Lista filmów");
-//                break;
-//            case 2:
-//                System.out.println("==ToDo== 2. Dodaj film");
-//                break;
-//            case 3:
-//                System.out.println("==ToDo== 3. Edytuj film");
-//                break;
-//            case 4:
-//                System.out.println("==ToDo== 4. Usuń film");
-//                break;
-//            case 5:
-//                System.out.println("==ToDo== 5. Sprawdź dostępność filmu");
-//                break;
-//            case 6:
-//                System.out.println("==ToDo== 5. Sprawdź dostępność filmu");
-//                break;
-//            case 7:
-//                System.out.println("== Wybrano: 7 == Lista klientów");
-//                klientAdd.wyswietlListeKlientow();
-//                break;
-//            case 8:
-//                System.out.println("== Wybrano: 8 == Dodaj klienta");
-//                klientAdd.dodajKlienta(klient);
-////                wyswietlMenu();
-//                break;
-//            case 9:
-//                System.out.println("==ToDo== 9. Edytuj klienta");
-//                break;
-//            case 10:
-//                System.out.println("==ToDo== 10. Usuń klienta");
-//                break;
-//            case 11:
-//                System.out.println("==ToDo== 11. Cennik");
-//                break;
-//            case 12:
-//                System.out.println("==ToDo== 12. Edytuj cennik");
-//                break;
-//            case 13:
-//                System.out.println("==ToDo== 13. Finanse");
-//                break;
-//            case 14:
-//                System.out.println("==ToDo== 14. Kary/lista dłużników");
-//                break;
-//            case 0:
-//                System.out.println("======= Wybrano powrót ======= ");
-////               menuGlowne.wyswietlMenuLogowania();
-//
-//                break;
-//            default:
-//                System.out.println("Wyświetlam nieprzewidziane zdarzenie! ADMIN");
-//        }
+        switch (odczytaneMenu) {
+            case 0:
+                System.out.println("-1. KONIEC PROGRAMU");
+                System.out.println("1. FILM");
+                System.out.println("2. KLIENT");
+                System.out.println("3. WYPOŻYCZENIE ZWROT");
+                System.out.println("4. FINANSE");
+                break;
+            case 1:
+                System.out.println("0.  POWRÓT DO GŁÓWNEGO MENU");
+                System.out.println("11. LISTA FILMÓW");
+                System.out.println("12. WYSZUKANIE FILMU");
+                System.out.println("13. DODANIE FILMU");
+                System.out.println("14. EDYCJA FILMU");
+                System.out.println("15. SKASOWANIE FILMU");
+                break;
+            case 2:
+                System.out.println("0.  POWRÓT DO GŁÓWNEGO MENU");
+                System.out.println("21. LISTA KLIENTÓW");
+                System.out.println("22. WYSZUKANIE KLIENTÓW");
+                System.out.println("23. DODANIE KLIENTA");
+                System.out.println("24. EDYCJA KLIENTA");
+                System.out.println("25. SKASOWANIE KLIENTA");
+                System.out.println("26. LISTA DŁUŻNIKÓW");
+                break;
+            case 3:
+                System.out.println("0.  POWRÓT DO GŁÓWNEGO MENU");
+                System.out.println("31. WYPOŻYCZENIE FOLMU");
+                System.out.println("32. ZWROT FILMU");
+                break;
+            case 4:
+                System.out.println("0.  POWRÓT DO GŁÓWNEGO MENU");
+                System.out.println("41. LISTA PRZYCHODÓW");
+                break;
+            default:
+                System.out.println("-1. KONIEC PROGRAMU");
+                System.out.println("1. FILM");
+                System.out.println("2. KLIENT");
+                System.out.println("3. WYPOŻYCZENIE ZWROT");
+                System.out.println("4. FINANSE");
+                break;
+        }
     }
 }
 

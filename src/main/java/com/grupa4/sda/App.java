@@ -1,9 +1,9 @@
 package com.grupa4.sda;
 import com.grupa4.sda.narzedzia.Logowanie;
 import com.grupa4.sda.narzedzia.Odczyt;
-import com.grupa4.sda.menu.MenuAdmin;
 import com.grupa4.sda.menu.MenuGlowne;
 import com.grupa4.sda.narzedzia.OperacjeNaPlikach;
+import com.grupa4.sda.procesy.Film;
 import com.grupa4.sda.procesy.Klient;
 import com.grupa4.sda.procesy.WeryfikacjaUprawnien;
 
@@ -11,10 +11,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
+import static com.grupa4.sda.narzedzia.Ustawienia.PLIK_Z_LISTA_FILMOW;
 import static com.grupa4.sda.narzedzia.Ustawienia.PLIK_Z_LISTA_KLIENTOW;
 
 public class App {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Throwable {
 
         //logowanie uzytkownika
         Logowanie.zaloguj();
@@ -30,6 +31,18 @@ public class App {
 
         Set<Klient> listaKlientow = new HashSet<>();
         listaKlientow=Klient.tworzeListeKlientowZListyStringow(listaStringow);
+        //zainicjowanie maxymalnego id używanego np do listy filmów
+        UnikalneId unikalneId = new UnikalneId();
+
+        //Tworzymy - odczytujemy liste filmów
+        listaStringow=operacjeNaPlikach.readFileToList(PLIK_Z_LISTA_FILMOW);
+        Set<Film> listaFilmow = new HashSet<>();
+        listaFilmow=Film.tworzeListeFilmowZListyStringow(listaStringow);
+
+
+//        System.out.println("unikalne id ="+unikalneIdObiekt.unikalneId);
+//        unikalneIdObiekt.unikalneId++;
+//        System.out.println("unikalne id ="+unikalneIdObiekt.unikalneId);
 
 
 //        System.out.println("Odczytujemy dane z pliku");
@@ -57,13 +70,9 @@ public class App {
             //tu dodamy wykonywanie polecen
             switch (odczytaneMenu) {
                 case -1://koniec programu
-                    if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytaneMenu)){
-                        System.out.println("KONIEC PROGRAMU Masz do tego uprawnienie");
-                        System.out.println("tu dopisać operacje do wykonania przy zakończeniu programu: np zapisanie danych");
-                    }
-                    else{
-                        System.out.println("Nie masz do tego uprawnienia");
-                    }
+                    System.out.println("KONIEC PROGRAMU");
+                    System.out.println("tu dopisać operacje do wykonania przy zakończeniu programu: np zapisanie danych");
+                    unikalneId.zapiszDoPliku();
                     break;
                 case 0:
                     break;
@@ -83,12 +92,24 @@ public class App {
                                         break;
                                     case 11:
                                         System.out.println("jestem w 11 wyswietlam liste filmow");
+                                        if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytanePodMenu)){
+                                                Film.wyswietlListeFilmow(listaFilmow);
+                                        }
+                                        else{
+                                            System.out.println("Nie masz uprawnień");
+                                        }
                                         break;
                                     case 12:
                                         System.out.println("jestem w 12 - wysukuje film");
                                         break;
                                     case 13:
                                         System.out.println("jestem w 13 - dodanie film");
+                                        if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytanePodMenu)){
+                                            Film.dopiszFilmDoListyFilmow(listaFilmow);
+                                        }
+                                        else{
+                                            System.out.println("Nie masz uprawnień");
+                                        }
                                         break;
                                     case 14:
                                         System.out.println("jestem w 14 - edycja film");
@@ -118,7 +139,7 @@ public class App {
                     break;
                 case 3:
                     if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytaneMenu)){
-                        System.out.println("LISTA CENNIK - Masz do tego uprawnienie");
+                        System.out.println("OBSLUGA WYPOZYCZEN I ZWROTU FILMU - Masz do tego uprawnienie");
                         System.out.println("tu dopisać operacje w kolejnej pętli");
                     }
                     else{

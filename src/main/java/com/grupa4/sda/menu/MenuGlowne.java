@@ -10,7 +10,7 @@ public class MenuGlowne {
     Odczyt odczyt = new Odczyt() {
     };
 
-    public void wyswietlMenuPoZalogowaniu() {
+    public void wyswietlMenuPoZalogowaniu(int odczytaneMenu) {
 
 //        System.out.println("Zaloguj jako: ");
 //        System.out.println("1 - Administrator");
@@ -22,7 +22,7 @@ public class MenuGlowne {
         switch (Logowanie.uzytkownikZalogowany) {
             case ADMINISTRATOR:
                 MenuAdmin menuAdmin = new MenuAdmin();
-                menuAdmin.wyswietlMenu();
+                menuAdmin.wyswietlMenu(odczytaneMenu);
 //                try {
 //                    menuAdmin.wyswietlMenu();
 //                } catch (IOException e) {
@@ -31,11 +31,11 @@ public class MenuGlowne {
                 break;
             case PRACOWNIK:
                 MenuPracownik menuPracownik = new MenuPracownik();
-                menuPracownik.wyswietlMenu();
+                menuPracownik.wyswietlMenu(odczytaneMenu);
                 break;
             case KLIENT:
                 MenuKlient menuKlient =new MenuKlient();
-                menuKlient.wyswietlMenu();
+                menuKlient.wyswietlMenu(odczytaneMenu);
                 break;
             default:
                 System.out.println("Wyświetlam nieprzewidziane zdarzenie! LOGOWANIE");
