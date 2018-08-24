@@ -1,4 +1,6 @@
-2|Wichry Wojny|ZAJETY
+2|Wichry Wojny po zmianie|ZAJETY
+11|Film do skasowania 2|DOSTEPNY
+12|Poprawiony tytuł filmu do skasowania|DOSTEPNY
 1|Przygody Tolka Babana|DOSTEPNY
-4|Kiepscy odc 1|DOSTEPNY
+4|Kiepscy odc 1|ZAJETY
 5|Kiepscy odc 2|DOSTEPNY

@@ -100,7 +100,13 @@ public class App {
                                         }
                                         break;
                                     case 12:
-                                        System.out.println("jestem w 12 - wysukuje film");
+                                        System.out.println("jestem w 12 - wyszukuje film");
+                                        if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytanePodMenu)){
+                                            Film.wyswietlListeFilmow(Film.wyszukajlListeFilmow(listaFilmow));
+                                        }
+                                        else{
+                                            System.out.println("Nie masz uprawnień");
+                                        }
                                         break;
                                     case 13:
                                         System.out.println("jestem w 13 - dodanie film");
@@ -113,9 +119,21 @@ public class App {
                                         break;
                                     case 14:
                                         System.out.println("jestem w 14 - edycja film");
+                                        if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytanePodMenu)){
+                                            Film.edytujFilm(listaFilmow);
+                                        }
+                                        else{
+                                            System.out.println("Nie masz uprawnień");
+                                        }
                                         break;
                                     case 15:
                                         System.out.println("jestem w 15 - skasowanie film");
+                                        if(weryfikacjaUprawnien.sprawdzUprawnienie(Logowanie.uzytkownikZalogowany,odczytanePodMenu)){
+                                            Film.skasujFilm(listaFilmow);
+                                        }
+                                        else{
+                                            System.out.println("Nie masz uprawnień");
+                                        }
                                         break;
                                     default:
                                         break;//koniec programu
